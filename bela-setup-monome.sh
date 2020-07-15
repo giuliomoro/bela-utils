@@ -25,9 +25,9 @@ ldconfig
 
 cat << EOF > serialoscd.service
 [Unit]
-Description=simple
+Description=serialosc daemon
 [Service]
-Type=forking
+Type=simple
 ExecStart=/usr/local/bin/serialoscd
 PIDFile=/var/run/serialoscd.pid
 RemainAfterExit=no

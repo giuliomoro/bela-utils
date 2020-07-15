@@ -28,7 +28,7 @@ cat << EOF > serialoscd.service
 Description=simple
 [Service]
 Type=forking
-ExecStart=serialoscd
+ExecStart=/usr/local/bin/serialoscd
 PIDFile=/var/run/serialoscd.pid
 RemainAfterExit=no
 Restart=on-failure

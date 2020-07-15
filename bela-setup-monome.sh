@@ -7,6 +7,7 @@
 sudo apt install libudev-dev liblo-dev libavahi-compat-libdnssd-dev
 
 git clone https://github.com/monome/libmonome.git
+cd libmonome
 ./waf configure
 ./waf
 sudo ./waf install
@@ -20,6 +21,7 @@ git submodule update
 ./waf
 sudo ./waf install
 cd ..
+ldconfig
 
 cat << EOF > serialoscd.service
 [Unit]
@@ -35,7 +37,6 @@ RestartSec=5s
 WantedBy=multi-user.target
 EOF
 
-chmod 777 serialoscd.service
 mv serialoscd.service /lib/systemd/system/serialoscd.service
-ln -s /lib/systemd/system/serialoscd.service /etc/systemd/system/multi-user.target.wants/serialoscd.service
-ldconfig
+systemctl enable serialoscd
+systemctl start serialoscd

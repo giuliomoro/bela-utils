@@ -28,7 +28,7 @@ cat << EOF > serialoscd.service
 Description=serialosc daemon
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/serialoscd -c ~/.config/serialosc/
+ExecStart=/usr/local/bin/serialoscd -c /root/.config/serialosc
 PIDFile=/var/run/serialoscd.pid
 RemainAfterExit=no
 Restart=on-failure
